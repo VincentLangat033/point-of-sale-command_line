@@ -1,3 +1,5 @@
+from customer.customer_operations import add_customer
+
 
 def customer_menu():
     print("What would you like to do?")
