@@ -1,16 +1,28 @@
-# This is a sample Python script.
+def main_menu():
+    print("""
+----------------------------------
 
-# Press Shift+F10 to execute it or replace it with your code.
-# Press Double Shift to search everywhere for classes, files, tool windows, actions, and settings.
+*** Welcome to Python PoS CLI  ***
 
+----------------------------------
+    """)
+    print("1. Customer Operations ")
+    print("2. Product Operations ")
+    print("3. Purchase Operations")
+    print("""
+    """)
+    value = int(input("Enter operation you wish to perform : "))
+    if value == 1:
+        print("""
+    ***   Proceed to Customer Operations ***
+        """)
+        customer_menu()
+    elif value == 2:
+        product_menu()
+    elif value == 3:
+        purchase_menu()
+    else:
+        print("Try again")
+        main_menu()
 
-def print_hi(name):
-    # Use a breakpoint in the code line below to debug your script.
-    print(f'Hi, {name}')  # Press Ctrl+F8 to toggle the breakpoint.
-
-
-# Press the green button in the gutter to run the script.
-if __name__ == '__main__':
-    print_hi('Vincent Kimutai')
-
-# See PyCharm help at https://www.jetbrains.com/help/pycharm/
+main_menu()
