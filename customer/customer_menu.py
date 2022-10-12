@@ -1,3 +1,4 @@
+
 def customer_menu():
     print("What would you like to do?")
     print("1. Add a customer")
@@ -7,6 +8,9 @@ def customer_menu():
     print("5. View all customers")
     print("6. Go Back Home")
     print("7. Quit")
+    print("""
+    """)
+
     value = int(input("Enter action you would like to do : "))
 
     if value == 1:
