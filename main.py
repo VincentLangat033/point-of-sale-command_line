@@ -1,3 +1,6 @@
+from customer.customer_menu import customer_menu
+
+
 def main_menu():
     print("""
 ----------------------------------
@@ -14,9 +17,13 @@ def main_menu():
     value = int(input("Enter operation you wish to perform : "))
     if value == 1:
         print("""
+---------------------------------------------
     ***   Proceed to Customer Operations ***
+---------------------------------------------
         """)
         customer_menu()
+
+
     elif value == 2:
         product_menu()
     elif value == 3:
