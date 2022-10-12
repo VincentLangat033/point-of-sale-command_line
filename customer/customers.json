@@ -1,17 +1,9 @@
 [
     {
-        "name": "Vincent",
-        "age": 24,
-        "id": 1
-    },
-    {
-        "name": "Kimutai",
+        "name": "Kim",
         "age": 26,
-        "id": 2
-    },
-    {
-        "name": "Jon",
-        "age": 25,
-        "id": 3
+        "id": "C002",
+        "email": "kim@gmail.com",
+        "phone": "0724578219"
     }
 ]

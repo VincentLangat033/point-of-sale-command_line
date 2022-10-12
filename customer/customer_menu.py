@@ -30,7 +30,7 @@ def customer_menu():
         delete_customer()
         customer_menu()
     elif value == 4:
-        view_all_products()
+        # view_all_products()
         print("What do you wish to do? ")
     elif value == 5:
         view_all_customers()

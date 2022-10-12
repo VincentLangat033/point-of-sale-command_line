@@ -25,9 +25,11 @@ def main_menu():
 
 
     elif value == 2:
-        product_menu()
+        pass
+        # product_menu()
     elif value == 3:
-        purchase_menu()
+        pass
+        # purchase_menu()
     else:
         print("Try again")
         main_menu()

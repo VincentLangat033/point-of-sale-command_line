@@ -1,0 +1,29 @@
+[
+    {
+        "name": "Vincent",
+        "age": 24,
+        "id": 1
+    },
+    {
+        "name": "Kimutai",
+        "age": 26,
+        "id": 2
+    },
+    {
+        "name": "Jon",
+        "age": 25,
+        "id": 3
+    },
+    {
+        "name": "John",
+        "age": 23,
+        "id": 100
+    },
+    {
+        "name": "Dennis",
+        "age": 23,
+        "id": "C004",
+        "email": "dennis@gmail.com",
+        "phone": 7236542819
+    }
+]

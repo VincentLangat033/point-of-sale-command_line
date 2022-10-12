@@ -1,20 +1,52 @@
 import json
+import re
+# from validate_email import validate_email
+file_path = "/home/moringa/PycharmProjects/SEPA/sprint_one/customer/customers.json"
+
+
+def solve(email):
+    pat = "^[a-zA-Z0-9-_]+@[a-zA-Z0-9]+\.[a-z]{1,3}$"
+    if re.match(pat, email):
+        return True
+    return False
+
+
+def validate_phone(phone):
+    pattern = r"^[07]|[01][0-9]{10}$"
+    if re.match(pattern, phone):
+        return True
+    return False
+    # pattern = re.compile("(0|91)?[6-9][0-9]{9}")
+    # return pattern.match(phone)
 
 
 def add_customer():
-    f = open('customers.json', 'r')
+    f = open(file_path, 'r')
     customers = json.load(f)
+    customer = { }
 
-    customer = {
-        "name": input("Enter Name: "),
-        "age": int(input("Age: ")),
-        "id": int(input("Customer ID: "))
-
-    }
-
+    customer["name"] = input("Enter Name: ")
+    customer["age"] = int(input("Age: "))
+    customer["id"] = input("Customer ID: ")
+    while True:
+        email = input("Customer Email: ")
+        if solve(email):
+            customer["email"] = email
+            break
+        else:
+            print("Enter the correct email format!")
+            continue
+    while True:
+        phone = input("Enter Phone Number: ")
+        if validate_phone(phone):
+            customer["phone"] = phone
+            break
+        else:
+            print("Phone number should start with 0 !")
+            continue
     customers.append(customer)
 
-    with open('customers.json', 'w', encoding='utf-8') as json_file:
+    with open(file_path, 'w', encoding='utf-8') as json_file:
         json.dump(customers, json_file, indent=4, separators=(',', ': '))
         print("Customer created successfully")
     print(customers)
@@ -24,7 +56,7 @@ def view_all_customers():
     # with open('test.json') as f:
     #     data = json.loads(f)
     #     print(data)
-    f = open('customers.json', 'r')
+    f = open(file_path, 'r')
     customers = json.load(f)
     i = 0
 
@@ -32,13 +64,16 @@ def view_all_customers():
         name = customer["name"]
         age = customer["age"]
         id = customer["id"]
+        email = customer["email"]
+        phone = customer["phone"]
         print(f"Index of customer {i}")
         print(f"Name of customer {name}")
         print(f"Age of customer {age}")
+        print(f"Email of customer {email}")
+        print(f"Phone number of customer {phone}")
         print(f"ID of customer {id}")
         print("\n")
         i = i+1
-
 
 
 def delete_customer():
@@ -49,7 +84,7 @@ def delete_customer():
     if user_input == "1":
         view_all_customers()
         new_data = []
-        f = open('customers.json', 'r')
+        f = open(file_path, 'r')
         customers = json.load(f)
         data_length = len(customers)-1
         print("Which index would you like to delete?")
@@ -113,3 +148,4 @@ def update_customer():
 
 
 
+add_customer()
