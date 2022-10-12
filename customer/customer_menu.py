@@ -1,4 +1,4 @@
-from customer.customer_operations import add_customer
+from customer.customer_operations import add_customer, view_all_customers, delete_customer, update_customer
 
 
 def customer_menu():
@@ -34,5 +34,10 @@ def customer_menu():
         print("What do you wish to do? ")
     elif value == 5:
         view_all_customers()
+        customer_menu()
     elif value == 6:
+        from main import main_menu
         main_menu()
+
+
+# customer_menu()
