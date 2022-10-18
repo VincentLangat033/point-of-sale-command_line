@@ -96,7 +96,7 @@ def delete_product():
     if user_input == "1":
         view_all_products()
         new_data = []
-        f = open('products.json', 'r')
+        f = open(product_json, 'r')
         products = json.load(f)
         data_length = len(products)-1
         print("Which index would you like to delete?")
