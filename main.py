@@ -1,3 +1,4 @@
+from turtle import pu
 from customer.customer_menu import customer_menu
 
 
@@ -26,8 +27,9 @@ def main_menu():
         from product import product_menu
         product_menu.product_menu()
     elif value == 3:
-        pass
-        # purchase_menu()
+        from purchases import purchase_menu
+        purchase_menu.purchase_menu()
+ 
     else:
         print("Try again")
         main_menu()
