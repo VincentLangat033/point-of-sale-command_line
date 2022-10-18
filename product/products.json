@@ -1,0 +1,20 @@
+[
+    {
+        "name": "Hp Laptop",
+        "cost": "55,000",
+        "quantity": "8",
+        "id": "1"
+    },
+    {
+        "name": "Dell laptop",
+        "cost": "66,500",
+        "quantity": "12",
+        "id": "2"
+    },
+    {
+        "name": "Asus Two",
+        "cost": "56500",
+        "quantity": "29",
+        "id": "4"
+    }
+]
