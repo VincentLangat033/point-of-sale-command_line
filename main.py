@@ -22,11 +22,9 @@ def main_menu():
 ---------------------------------------------
         """)
         customer_menu()
-
-
     elif value == 2:
-        pass
-        # product_menu()
+        from product import product_menu
+        product_menu.product_menu()
     elif value == 3:
         pass
         # purchase_menu()
