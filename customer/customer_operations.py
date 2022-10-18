@@ -24,7 +24,6 @@ def add_customer():
     f = open(file_path, 'r')
     customers = json.load(f)
     customer = { }
-
     customer["name"] = input("Enter Name: ")
     customer["age"] = int(input("Age: "))
     customer["id"] = input("Customer ID: ")
