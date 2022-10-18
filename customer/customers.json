@@ -1,9 +1,9 @@
 [
     {
         "name": "Kim",
-        "age": 26,
+        "age": "C001",
         "id": "C002",
-        "email": "kim@gmail.com",
-        "phone": "0724578219"
+        "phone": 724578219,
+        "email": "kim@gmail.com"
     }
 ]

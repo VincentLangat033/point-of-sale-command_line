@@ -125,13 +125,19 @@ def update_customer():
                 name = customer["name"]
                 age = customer["age"]
                 id = customer["id"]
+                phone = customer["phone"]
+                email = customer["email"]
                 print(f"Name of customer is:  {name}")
                 name = input("What would you like the new name of customer be?:  ")
                 print(f"Age of customer is: {age}")
                 age = int(input("What would you like the new age of customer be?:  "))
                 print(f"ID of customer is: {id}")
-                id = int(input("What would you like the new id of customer be?:  "))
-                new_data.append({"name": name, "age": age, "id": id})
+                age = input("What would you like the new age of customer be?:  ")
+                print(f"Phone No of customer is: {phone}")
+                phone = input("What would you like the new Phone No of customer be?:  ")
+                print(f"Email of customer is: {email}")
+                email = input("What would you like the new email of customer be?:  ")
+                new_data.append({"name": name, "age": age, "id": id, "phone": phone, "email": email})
                 print("\n")
 
                 i = i + 1
@@ -148,4 +154,5 @@ def update_customer():
 
 
 
-add_customer()
+# add_customer()
+# update_customer()
