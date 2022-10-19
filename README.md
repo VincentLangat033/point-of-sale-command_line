@@ -9,7 +9,7 @@ POS Console App is a Command - Line based Point Of Sale System. The project was 
 
 
 ## Table of contents
-* [General info](#About the POS)
+* [About the POS](#About the POS)
 * [Technologies](#Technologies)
 * [Features](#Features)
 * [Setup](#Setup)
