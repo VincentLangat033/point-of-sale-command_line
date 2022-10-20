@@ -19,5 +19,12 @@
         "id": "3",
         "phone": "0734215672",
         "email": "vinjohnson97@gmail.com"
+    },
+    {
+        "name": "William Mwaniki",
+        "age": 35,
+        "id": "4",
+        "email": "williammwaniki@gmail.com",
+        "phone": "0724321972"
     }
 ]
