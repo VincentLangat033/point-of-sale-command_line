@@ -23,10 +23,7 @@ def validate_phone(phone):
 def add_customer():
     f = open(file_path, 'r')
     customers = json.load(f)
-    customer = { }
-    customer["name"] = input("Enter Name: ")
-    customer["age"] = int(input("Age: "))
-    customer["id"] = input("Customer ID: ")
+    customer = {"name": input("Enter Name: "), "age": int(input("Age: ")), "id": input("Customer ID: ")}
     while True:
         email = input("Customer Email: ")
         if solve(email):
@@ -96,7 +93,7 @@ def delete_customer():
             else:
                 new_data.append(customer)
                 i = i + 1
-        with open('customers.json', 'w', encoding='utf-8') as json_file:
+        with open(file_path, 'w', encoding='utf-8') as json_file:
             json.dump(new_data, json_file, indent=4, separators=(',', ': '))
             print("Customer deleted successfully")
 
@@ -113,7 +110,7 @@ def update_customer():
     if user_input == "1":
         view_all_customers()
         new_data = []
-        f = open('customers.json', 'r')
+        f = open(file_path, 'r')
         customers = json.load(f)
         data_length = len(customers) - 1
         print("Which index would you like to update?")
@@ -131,7 +128,7 @@ def update_customer():
                 print(f"Age of customer is: {age}")
                 age = int(input("What would you like the new age of customer be?:  "))
                 print(f"ID of customer is: {id}")
-                age = input("What would you like the new age of customer be?:  ")
+                age = input("What would you like the new ID of customer be?:  ")
                 print(f"Phone No of customer is: {phone}")
                 phone = input("What would you like the new Phone No of customer be?:  ")
                 print(f"Email of customer is: {email}")
@@ -143,7 +140,7 @@ def update_customer():
             else:
                 new_data.append(customer)
                 i = i + 1
-        with open('customers.json', 'w', encoding='utf-8') as json_file:
+        with open(file_path, 'w', encoding='utf-8') as json_file:
             json.dump(new_data, json_file, indent=4, separators=(',', ': '))
             print("Customer updated successfully")
 
@@ -151,6 +148,49 @@ def update_customer():
         print("Invalid input try again")
         update_customer()
 
+
+def return_customer_name():
+    user_input = input("Enter value to proceed: ")
+    if user_input == "1":
+        view_all_customers()
+        new_data = []
+        f = open(file_path, 'r')
+        customers = json.load(f)
+        data_length = len(customers) - 1
+        print("Which index would you like to update?")
+        edit_option = input(f"Select a number between 0 and {data_length}: ")
+        i = 0
+        for customer in customers:
+            if i == int(edit_option):
+                name = customer["name"]
+                age = customer["age"]
+                id = customer["id"]
+                phone = customer["phone"]
+                email = customer["email"]
+                print(f"Name of customer is:  {name}")
+                name = input("What would you like the new name of customer be?:  ")
+                print(f"Age of customer is: {age}")
+                age = int(input("What would you like the new age of customer be?:  "))
+                print(f"ID of customer is: {id}")
+                age = input("What would you like the new ID of customer be?:  ")
+                print(f"Phone No of customer is: {phone}")
+                phone = input("What would you like the new Phone No of customer be?:  ")
+                print(f"Email of customer is: {email}")
+                email = input("What would you like the new email of customer be?:  ")
+                new_data.append({"name": name, "age": age, "id": id, "phone": phone, "email": email})
+                print("\n")
+
+                i = i + 1
+            else:
+                new_data.append(customer)
+                i = i + 1
+        with open(file_path, 'w', encoding='utf-8') as json_file:
+            json.dump(new_data, json_file, indent=4, separators=(',', ': '))
+            print("Customer updated successfully")
+
+    else:
+        print("Invalid input try again")
+        update_customer()
 
 
 # add_customer()
