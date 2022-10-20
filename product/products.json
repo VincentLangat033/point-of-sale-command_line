@@ -2,11 +2,13 @@
     {
         "name": "Hp Laptop",
         "quantity": 580,
-        "cost": 55000
+        "cost": 55000,
+        "id": 1
     },
     {
         "name": "Dell laptop",
         "quantity": 811,
-        "cost": 66500
+        "cost": 66500,
+        "id": 2
     }
 ]

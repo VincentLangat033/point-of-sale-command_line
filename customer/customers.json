@@ -12,5 +12,12 @@
         "phone": "0724675218",
         "age": 25,
         "id": "2"
+    },
+    {
+        "name": "John Kamau",
+        "age": 26,
+        "id": "3",
+        "phone": "0734215672",
+        "email": "vinjohnson97@gmail.com"
     }
 ]

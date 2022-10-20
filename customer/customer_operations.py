@@ -105,10 +105,19 @@ def delete_customer():
 
 
 def update_customer():
-    print("Want to update a customer?")
-    print("Press 1 to view index of Customer you want to update:")
-    # print("Press 2 to exit operation")
-    user_input = input("Enter value to proceed: ")
+
+    print(colored("""
+```````````````````````````````````````
+***  Customer Update Section   ***
+
+ Want to update a customer?
+ Press 1 to view index of Customer you want to update:
+ Press 2 to return to Customer Menu
+ Press 3 to exit the program at this stage
+ 
+ ````````````````````````````````````````
+""", "blue"))
+    user_input = input(colored("Enter value to proceed: ", "blue"))
     if user_input == "1":
         view_all_customers()
         new_data = []
@@ -125,16 +134,16 @@ def update_customer():
                 id = customer["id"]
                 phone = customer["phone"]
                 email = customer["email"]
-                print(f"Name of customer is:  {name}")
-                name = input("What would you like the new name of customer be?:  ")
-                print(f"Age of customer is: {age}")
-                age = int(input("What would you like the new age of customer be?:  "))
-                print(f"ID of customer is: {id}")
-                age = input("What would you like the new ID of customer be?:  ")
-                print(f"Phone No of customer is: {phone}")
-                phone = input("What would you like the new Phone No of customer be?:  ")
-                print(f"Email of customer is: {email}")
-                email = input("What would you like the new email of customer be?:  ")
+                print(colored(f"Name of customer is:  {name}", "yellow"))
+                name = input(colored("What would you like the new name of customer be?:  ", "blue"))
+                print(colored(f"Age of customer is: {age}", "yellow"))
+                age = int(input(colored("What would you like the new age of customer be?:  ", "blue")))
+                print(colored(f"ID of customer is: {id}", "yellow"))
+                id = input(colored("What would you like the new ID of customer be?:  ", "blue"))
+                print(colored(f"Phone No of customer is: {phone}", "yellow"))
+                phone = input(colored("What would you like the new Phone No of customer be?:  ", "blue"))
+                print(colored(f"Email of customer is: {email}", "yellow"))
+                email = input(colored("What would you like the new email of customer be?:  ", "blue"))
                 new_data.append({"name": name, "age": age, "id": id, "phone": phone, "email": email})
                 print("\n")
 
@@ -144,10 +153,10 @@ def update_customer():
                 i = i + 1
         with open(file_path, 'w', encoding='utf-8') as json_file:
             json.dump(new_data, json_file, indent=4, separators=(',', ': '))
-            print("Customer updated successfully")
+            print(colored("Customer updated successfully", "yellow"))
 
     else:
-        print("Invalid input try again")
+        print(colored("Invalid input try again", "red"))
         update_customer()
 
 
@@ -159,8 +168,8 @@ def return_customer_name():
         f = open(file_path, 'r')
         customers = json.load(f)
         data_length = len(customers) - 1
-        print("Which index would you like to update?")
-        edit_option = input(f"Select a number between 0 and {data_length}: ")
+        print(colored("Which index would you like to update?", "blue"))
+        edit_option = input(colored(f"Select a number between 0 and {data_length}: ", "blue"))
         i = 0
         for customer in customers:
             if i == int(edit_option):
@@ -188,12 +197,12 @@ def return_customer_name():
                 i = i + 1
         with open(file_path, 'w', encoding='utf-8') as json_file:
             json.dump(new_data, json_file, indent=4, separators=(',', ': '))
-            print("Customer updated successfully")
+            print(colored("Customer updated successfully", "yellow"))
 
     else:
-        print("Invalid input try again")
+        print(colored("Invalid input try again", "red"))
         update_customer()
 
 
-add_customer()
-# update_customer()
+# add_customer()
+update_customer()
