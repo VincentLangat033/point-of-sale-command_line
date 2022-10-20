@@ -31,10 +31,10 @@ def add_product():
     products = json.load(f)
 
     product = {
-        "name": input("Enter Name: "),
-        "cost": input("Cost: "),
-        "quantity": input("Quantity: "),
-        "id": input("ID: ")
+        "name": input(colored("Enter Name: ", "blue")),
+        "cost": input(colored("Cost: ", "blue")),
+        "quantity": input(colored("Quantity: ", "blue")),
+        "id": input(colored("ID: ", "blue"))
 
     }
 
@@ -42,7 +42,7 @@ def add_product():
 
     with open(product_json, 'w', encoding='utf-8') as json_file:
         json.dump(products, json_file, indent=4, separators=(',', ': '))
-        print("Product inserted successfully")
+        print(colored("Product inserted successfully", "yellow"))
     # print(customers)
 
 
@@ -113,13 +113,14 @@ def delete_product():
                 i = i + 1
         with open(product_json, 'w', encoding='utf-8') as json_file:
             json.dump(new_data, json_file, indent=4, separators=(',', ': '))
-            print("Product deleted successfully")
+            print("Product deleted successfully!")
 
     else:
-        print("Invalid input try again")
+        print("Invalid input try again!")
         delete_product()
 
 
 
 # view_all_products()
+add_product()
 

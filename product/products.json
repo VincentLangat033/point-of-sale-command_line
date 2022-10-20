@@ -10,5 +10,11 @@
         "quantity": 811,
         "cost": 66500,
         "id": 2
+    },
+    {
+        "name": "Lenovo",
+        "cost": "50000",
+        "quantity": "300",
+        "id": "3"
     }
 ]
