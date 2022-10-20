@@ -23,28 +23,29 @@ def validate_phone(phone):
 def add_customer():
     f = open(file_path, 'r')
     customers = json.load(f)
-    customer = {"name": input("Enter Name: "), "age": int(input("Age: ")), "id": input("Customer ID: ")}
+    customer = {"name": input(colored("Enter Name: ", "blue")), "age": int(input(colored("Age: ", "blue"))),
+                "id": input(colored("Customer ID: ", "blue"))}
     while True:
-        email = input("Customer Email: ")
+        email = input(colored("Customer Email: ", "yellow"))
         if solve(email):
             customer["email"] = email
             break
         else:
-            print("Enter the correct email format!")
+            print(colored("Enter the correct email format!", "red"))
             continue
     while True:
-        phone = input("Enter Phone Number: ")
+        phone = input(colored("Enter Phone Number: ", "yellow"))
         if validate_phone(phone):
             customer["phone"] = phone
             break
         else:
-            print("Phone number should start with 0 !")
+            print(colored("Phone number should start with 0 !", "red"))
             continue
     customers.append(customer)
 
     with open(file_path, 'w', encoding='utf-8') as json_file:
         json.dump(customers, json_file, indent=4, separators=(',', ': '))
-        print("Customer created successfully")
+        print(colored("Customer created successfully", "yellow"))
     print(customers)
 
 
@@ -194,5 +195,5 @@ def return_customer_name():
         update_customer()
 
 
-# add_customer()
+add_customer()
 # update_customer()
