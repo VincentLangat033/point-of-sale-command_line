@@ -1,19 +1,24 @@
+from termcolor import colored
+
+pos_cli = ("""
+----------------------------------
+
+*** Welcome to Python POS CLI  ***
+
+----------------------------------
+    """)
 
 
 def main_menu():
-    print("""
-----------------------------------
 
-*** Welcome to Python PoS CLI  ***
-
-----------------------------------
-    """)
-    print("1. Customer Operations ")
-    print("2. Product Operations ")
-    print("3. Purchase Operations")
-    print("""
-    """)
-    value = int(input("Enter operation you wish to perform : "))
+    print(colored(pos_cli, "yellow"))
+    print(colored("1. Customer Operations ", "blue"))
+    print(colored("2. Product Operations ", "blue"))
+    print(colored("3. Purchase Operations", "blue"))
+    print(colored("""
+________________________________________________
+    """, "yellow"))
+    value = int(input(colored("Enter operation you wish to perform : ", "blue")))
     if value == 1:
         print("""
 ---------------------------------------------

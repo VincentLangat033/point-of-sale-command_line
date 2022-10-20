@@ -315,7 +315,7 @@ def make_purchases():
             print(receipt)
             user_id = input("Enter a value")
             if user_id == "1":
-                send_email(customer_mail, "POS client", receipt)
+                send_email(customer_mail, " Here is your POS CLI receipt", receipt)
 
 
 
@@ -360,7 +360,7 @@ def product_purchase(final_order):
 
 
 
-make_purchases()
+# make_purchases()
 # process_purchase()
 
 # purchase_menu()
