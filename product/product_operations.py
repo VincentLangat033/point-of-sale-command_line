@@ -121,5 +121,5 @@ def delete_product():
 
 
 
-view_all_products()
+# view_all_products()
 
