@@ -3,18 +3,24 @@ from customer.customer_operations import add_customer, view_all_customers, delet
 
 
 def customer_menu():
-    print("What would you like to do?")
-    print("1. Add a customer")
-    print("2. Update a customer")
-    print("3. Delete a Customer")
-    print("4. Check available products")
-    print("5. View all customers")
-    print("6. Go Back Home")
-    print("7. Quit")
-    print("""
-    """)
+    print(colored("""
+  What would you like to do?
 
-    value = int(input("Enter action you would like to do : "))
+````````````````````````````````````````````````
+    1. Add a customer
+    2. Update a customer
+    3. Delete a Customer
+    4. Check available products
+    5. View all customers
+    6. Go Back Home
+    7. Quit
+    
+```````````````````````````````````````````````````
+    """, "blue"))
+    value = int(input(colored("Enter action you would like to do :\n", "yellow")))
+    print("""
+    
+    """)
 
     if value == 1:
         print("Enter Details of customer you wish to add")
@@ -42,4 +48,4 @@ def customer_menu():
         main_menu()
 
 
-# customer_menu()
+customer_menu()
