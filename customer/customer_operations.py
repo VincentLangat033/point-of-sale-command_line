@@ -75,18 +75,21 @@ ____________________________________________________
 
 
 def delete_customer():
-    print("Want to delete a customer?")
-    print("Press 1 to view index of Customer you want to delete:")
-    # print("Press 2 to exit operation")
-    user_input = input("Enter value to proceed: ")
+    print(colored("""
+       Want to delete a customer?
+   Press 1 to view index of Customer you want to delete:
+    
+    """, "blue"))
+
+    user_input = input(colored("Enter value to proceed: ", "blue"))
     if user_input == "1":
         view_all_customers()
         new_data = []
         f = open(file_path, 'r')
         customers = json.load(f)
         data_length = len(customers)-1
-        print("Which index would you like to delete?")
-        delete_option = input(f"Select a number between 0 and {data_length}: ")
+        print(colored("Which index would you like to delete?", "yellow"))
+        delete_option = input(colored(f"Select a number between 0 and {data_length}: ", "blue"))
         i = 0
         for customer in customers:
             if i == int(delete_option):
@@ -97,10 +100,10 @@ def delete_customer():
                 i = i + 1
         with open(file_path, 'w', encoding='utf-8') as json_file:
             json.dump(new_data, json_file, indent=4, separators=(',', ': '))
-            print("Customer deleted successfully")
+            print(colored("Customer deleted successfully", "yellow"))
 
     else:
-        print("Invalid input try again")
+        print(colored("Invalid input try again", "red"))
         delete_customer()
 
 
@@ -205,4 +208,4 @@ def return_customer_name():
 
 
 # add_customer()
-update_customer()
+# update_customer()
