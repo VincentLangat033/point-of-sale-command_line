@@ -40,7 +40,7 @@ def customer_menu():
         product_operations.view_all_products()
     elif value == 5:
         view_all_customers()
-        user_input = input(colored("Enter 1 to return to Customer Menu or 0 to quit at this point: ", "blue"))
+        user_input = input(colored("Enter 1 to return to Customer Menu or 0 to quit at this point: ", "yellow"))
         if user_input == "1":
             customer_menu()
         elif user_input == "2":
