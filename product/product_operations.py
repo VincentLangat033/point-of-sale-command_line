@@ -50,7 +50,6 @@ def add_product():
 
 
 def update_product():
-    products = json.load(f)
     print(colored("""
     `````````````````````````````````````
         UPDATE PRODUCT SECTION: 

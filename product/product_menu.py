@@ -35,9 +35,12 @@ def product_menu():
         from product import product_operations
         product_operations.delete_product()
         product_menu()
+    elif value == "5":
+        from purchases import purchase_menu
+        purchase_menu.make_purchases()
 
     else:
-        print("Invalid number, try again!")
+        print(colored("Invalid number, try again!", "red"))
 
 
 product_menu()
