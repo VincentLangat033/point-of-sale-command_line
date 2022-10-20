@@ -1,5 +1,3 @@
-from turtle import pu
-from customer.customer_menu import customer_menu
 
 
 def main_menu():
@@ -22,13 +20,14 @@ def main_menu():
     ***   Proceed to Customer Operations ***
 ---------------------------------------------
         """)
-        customer_menu()
+        from customer import customer_menu
+        customer_menu.customer_menu()
     elif value == 2:
         from product import product_menu
         product_menu.product_menu()
     elif value == 3:
         from purchases import purchase_menu
-        purchase_menu.purchase_menu()
+        purchase_menu.make_purchases()
  
     else:
         print("Try again")
