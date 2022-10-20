@@ -25,11 +25,13 @@ ________________________________________________
     print(colored("What do you wish to do? ", "blue"))
     value = int(input(colored("Enter operation you wish to perform : ", "blue")))
     if value == 1:
-        print("""
+        print(colored("""
 ---------------------------------------------
-    ***   Proceed to Customer Operations ***
+
+***   You are at  Customer Operations Column:   ***
+    
 ---------------------------------------------
-        """)
+        """, "yellow"))
         from customer import customer_menu
         customer_menu.customer_menu()
     elif value == 2:
