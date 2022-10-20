@@ -21,7 +21,6 @@ def customer_menu():
     print("""
     
     """)
-
     if value == 1:
         print("Enter Details of customer you wish to add")
         add_customer()
@@ -37,7 +36,6 @@ def customer_menu():
         delete_customer()
         customer_menu()
     elif value == 4:
-        # view_all_products()
         from product import product_operations
         product_operations.view_all_products()
     elif value == 5:
@@ -49,10 +47,6 @@ def customer_menu():
             pass
         else:
             print(colored("Input Invalid!, Try again!", "red"))
-
-
-
-
     elif value == 6:
         from main import main_menu
         main_menu()
