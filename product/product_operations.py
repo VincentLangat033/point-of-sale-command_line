@@ -42,9 +42,7 @@ def add_product():
         "id": input(colored("ID: ", "blue"))
 
     }
-
     products.append(product)
-
     with open(product_json, 'w', encoding='utf-8') as json_file:
         json.dump(products, json_file, indent=4, separators=(',', ': '))
         print(colored("Product inserted successfully", "yellow"))
@@ -86,7 +84,6 @@ def update_product():
                 id = input(colored("What would you like the new ID of product be?:  ", "blue"))
                 new_data.append({"name": name, "cost": cost, "quantity": quantity, "id": id})
                 print("\n")
-
                 i = i + 1
             else:
                 new_data.append(product)
@@ -94,7 +91,6 @@ def update_product():
         with open(product_json, 'w', encoding='utf-8') as json_file:
             json.dump(new_data, json_file, indent=4, separators=(',', ': '))
             print(colored("Product updated successfully", "yellow"))
-
     else:
         print(colored("Invalid input try again", "red"))
         update_product()
@@ -129,7 +125,6 @@ def delete_product():
         with open(product_json, 'w', encoding='utf-8') as json_file:
             json.dump(new_data, json_file, indent=4, separators=(',', ': '))
             print(colored("Product deleted successfully!", "yellow"))
-
     else:
         print(colored("Invalid input try again!", "red"))
         delete_product()
