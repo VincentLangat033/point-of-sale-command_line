@@ -1,4 +1,5 @@
 import json
+from termcolor import colored
 product_json = "/home/moringa/PycharmProjects/SEPA/sprint_one/product/products.json"
 
 
@@ -9,18 +10,19 @@ def view_all_products():
     f = open(product_json, 'r')
     products = json.load(f)
     i = 0
-
     for product in products:
         name = product["name"]
         cost = product["cost"]
         quantity = product["quantity"]
         id = product["id"]
-        print(f"Index of product: {i}")
-        print(f"Name of product: {name}")
-        print(f"Cost of product: {cost}")
-        print(f"Available quantity of the product: {quantity} pieces")
-        print(f"The ID of the product: {id} ")
-        print("\n")
+        print(colored(f"Index of product : {i}", "yellow"))
+        print(colored(f"Name of product : {name}", "blue"))
+        print(colored(f"Cost of product : {cost}", "blue"))
+        print(colored(f"Available quantity of the product : {quantity} pieces", "yellow"))
+        print(colored(f"The ID of the product : {id} ", "blue"))
+        print(colored("""
+______________________________________________
+""", "blue"))
         i = i+1
 
 
@@ -119,5 +121,5 @@ def delete_product():
 
 
 
-
+view_all_products()
 
