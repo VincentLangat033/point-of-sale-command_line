@@ -52,4 +52,4 @@ def customer_menu():
         main_menu()
 
 
-customer_menu()
+# customer_menu()

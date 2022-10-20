@@ -13,8 +13,7 @@
     },
     {
         "name": "Lenovo",
-        "cost": "50000",
-        "quantity": "300",
-        "id": "3"
+        "quantity": 260,
+        "cost": "50000"
     }
 ]

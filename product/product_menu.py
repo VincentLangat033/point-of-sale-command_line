@@ -43,4 +43,4 @@ def product_menu():
         print(colored("Invalid number, try again!", "red"))
 
 
-product_menu()
+# product_menu()

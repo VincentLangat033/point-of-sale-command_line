@@ -1,143 +1,70 @@
 import json
+from termcolor import colored
 import os
 import smtplib
+
 filename = "/home/moringa/PycharmProjects/SEPA/sprint_one/customer/customers.json"
 product_file = "/home/moringa/PycharmProjects/SEPA/sprint_one/product/products.json"
 cart_file = "/home/moringa/PycharmProjects/SEPA/sprint_one/purchases/cart.json"
 
 
-# def check_if_user_id_exist():
-#     # with open(filename) as file:  # opens json file
-#     #     data = json.load(file)  # loads the data
-#     f = open('customers.json', 'r')
-#     customers = json.load(f)
-#     for customer in customers:
-#         name = customer["name"]
-#
-#     # f = open('customers.json', 'r')
-#     # customers = json.load(f)
-#
-#     # print(customers)
-#
-#         print(name)
-#         print(customer)
-#         user_id = input("Verify your Customer ID: ")
-#         if (customer.get('id')) == user_id:
-#             print("Your ID exists lets proceed")
-#             print("Enter 1 to view a list of products so you can purchase")
-#             # purchase_menu()
-#             # user_id = user_id
-#
-#             break
-#         else:
-#             print("Your ID does not exist. Wanna create a new customer?")
-#             print("Enter 1 to create a new customer: ")
-#             print("Enter 2 to try again: ")
-#             user_input = int(input("Enter option: "))
-#             if user_input == "1":
-#                 add_customer()
-#             elif user_input == "2":
-#
-#                 check_if_user_id_exist()
-#
-#             else:
-#                 print("You entered an invalid option!")
-#                 check_if_user_id_exist()
-#
-#             break
-
-
 def user_json_file():
     """
-    Opens the json file and reads its content
+
+    This action opens the customers json file and return its data
+
     """
-    with open(filename) as file:  # opens json file
-        data = json.load(file)  # loads the data
+    with open(filename) as file:
+        data = json.load(file)
     return data
 
 
 def product_json_file():
     """
-    Opens the json file and reads its content
+    This action opens the products json file and return its data
+
     """
-    with open(product_file) as file:  # opens json file
-        data = json.load(file)  # loads the data
-
+    with open(product_file) as file:
+        data = json.load(file)
     return data
-
-# def check_if_user_valid():
-#     """
-#     Checks if a user exist or not.
-#     """
-#     users = user_json_file()
-#     customer = input("enter id: ")
-#     # print(users)
-#     for (index, entry) in enumerate(users):
-#         if customer == entry["id"]:
-#
-#             # print(index)
-#             # start_purchases()
-#             purchase_menu()
-#
-#             return str(index)
-#         else:
-#             # print("not success")
-#             continue
-#     return False
 
 
 def check_user(customer):
     """
-    Checks if a user exist or not.
+    Action to Check if a Customer exists
     """
     users = user_json_file()
     # print(users)
     for (index, entry) in enumerate(users):
-        if customer == entry["id"]:  # remember to use users input
+        if customer == entry["id"]:
             return str(index)
         else:
-            print("Wrong customer ID")
-            print("Try again!")
+            print(colored("Wrong customer ID", "red"))
+            print(colored("Try again!", "red"))
             continue
-            # purchase_menu()
-
     return False
 
 
 def check_product(product):
     """
-    Checks if a product exist or not.
+    Action to check if a product truly exists
     """
     users = product_json_file()
     # print(users)
     for (product_index, entry) in enumerate(users):
-        if product == entry["id"]:  # remember to use users input
+        if product == entry["id"]:
             return str(product_index)
         else:
-            print("Wrong product ID")
-            print("Try again!")
+            print(colored("Wrong product ID", "red"))
+            print(colored("Try again!", "red"))
             continue
             # purchase_menu()
-
     return False
-# def fetch_product_by_index(product_index):
-#     f = open('products.json', 'r')
-#     products = json.load(f)
-#     i = 0
-#
-#     for product in products:
-#         # name = product["name"]
-#         # cost = product["cost"]
-#         # quantity = product["quantity"]
-#         # id = product["id"]
-#         # print(product["id"])
-#         print(product)
-#         # return product
 
 
 def goods_bought(quantity, cost, email):
     """
-    Inputs the goods that the user has bought in the db.
+    Goods bought by the customer will be appended to the database
     """
     updated_user_list = []
     user_details = user_json_file()
@@ -183,7 +110,7 @@ def create_product_id():
 
 def goods_sold(name, goods_sold):
     """
-    Inputs the goods that the user has bought in the db.
+    Stores the goods that a customer has bought, minuses products purchases
     """
     updated_product_list = []
     product_details = product_json_file()
@@ -206,29 +133,31 @@ def goods_sold(name, goods_sold):
 
 
 def send_email(email_receiver, subject, text):
-    # wdfjlrrmhebayvts
-
-
-    email = "vlangat439@gmail.com"
-    password = "wdfjlrrmhebayvts"
-    # subject = "hello there"
+    """
+     email_receiver:
+    :param subject:
+    :param text:
+    :return:
+    # wdfjlrrmhebayvts - authenitcation token to be used in place of email address
+       # subject = "hello there"
     # text = "Good morning"
     # email_receiver = "kimutaiketer033@gmail.com"
+    """
+    email = "vlangat439@gmail.com"
+    password = "wdfjlrrmhebayvts"
     sender_email = email
     receiver_email = email_receiver
     password = password
-
     subject = subject
     text = text
-
     message = 'Subject: {}\n\n{}'.format(subject, text)
-
     server = smtplib.SMTP('smtp.gmail.com', 587)
 
     server.starttls()
     server.login(sender_email, password)
     server.sendmail(sender_email, receiver_email, message, subject)
-    print("Email Sent Successfully!")
+    print(colored("Email Sent Successfully!", "yellow"))
+
 
 def make_purchases():
     final_order = {}
@@ -243,12 +172,12 @@ def make_purchases():
             data_length = len(customer_temp)
             while True:
                 try:
-                    customer_id = int(input(f"\nEnter Customer ID(1-{data_length}) of the buyer: >> "))
+                    customer_id = int(input(colored(f"\nEnter Customer ID(1-{data_length}) of the buyer: >> ", "blue")))
                 except ValueError:
-                    print(f"\nINVALID INPUT!")
+                    print(colored(f"\nINVALID INPUT!", "red"))
                     continue
                 if customer_id > data_length:
-                    print("CUSTOMER DOES NOT EXIST! Enter VALID Customer ID!")
+                    print(colored("CUSTOMER DOES NOT EXIST! Enter VALID Customer ID!", "red"))
                     continue
                 else:
                     break
@@ -270,18 +199,29 @@ def make_purchases():
             while True:
                 product = product_json_file()
                 customer = user_json_file()
-
-                buyer_choice = input("Which laptop ID do you want?\n")
-                pairs = input("How many pieces do you need?\n")
+                print(colored("""
+`````````````````````````````````
+   MAKE YOUR PURCHASES HERE:
+   
+`````````````````````````````````
+                """, "blue"))
+                buyer_choice = input(colored("Which laptop ID do you want?\n", "blue"))
+                pairs = input(colored("How many pieces do you need?\n", "blue"))
                 cart = [product[int(buyer_choice)]["name"], int(pairs), product[int(buyer_choice)]["cost"],
                         int(pairs) * int(product[int(buyer_choice)]["cost"])]
                 main_cart.append(cart)
                 print(main_cart)
-
-                print("Do you want to continue shopping? ")
-                print("* yes ")
-                print("* no ")
-                user_choice = input("")
+                print(colored("""
+```````````````````````````````
+ENJOYED YOUR SHOPPING?
+  - YOU HAVE ALL YOU NEED? (can never be enough though 😊)
+  
+```````````````````````````````                
+                """, "blue"))
+                print(colored("Do you want to continue shopping? ", "blue"))
+                print(colored("Enter yes to continue shopping: ", "blue"))
+                print(colored("Enter no to proceed to check-out: ", "blue"))
+                user_choice = input(colored("Your choice here: ", "blue"))
                 if user_choice.lower() == "yes":
                     continue
                 elif user_choice.lower() == "no":
@@ -289,7 +229,7 @@ def make_purchases():
 
                     break
                 else:
-                    print("Please choose valid answer.")
+                    print(colored("Please choose valid answer.", "red"))
             total_cost = 0
             # print(entry["email"])
             index = check_user(customer)
@@ -300,7 +240,7 @@ def make_purchases():
             goods_bought(cart[1], total_cost, customer[int(index)]["email"])
             the_join = ''.join([f"{i[0]}  -  {i[1]}  : {i[2]}  each\n" for i in main_cart])
 
-            receipt = f"""
+            receipt = colored(f"""
     Customer Receipt
     _________________________________________________
     Customer name: {customer[int(index)]["name"]}
@@ -310,13 +250,12 @@ def make_purchases():
     {the_join}         
     Total purchase cost  : {total_cost}
     _________________________________________________   
-            """
+            """, "blue")
 
             print(receipt)
-            user_id = input("Enter a value")
+            user_id = input(colored("Enter a value", "blue"))
             if user_id == "1":
                 send_email(customer_mail, " Here is your POS CLI receipt", receipt)
-
 
 
 def product_purchase(final_order):
@@ -329,7 +268,8 @@ def product_purchase(final_order):
 
     with open(cart_file, "r") as json_file:
         cart_temp = json.load(json_file)
-    option = int(input(f"Enter Product ID(1 - {data_length}) of item you wish to add to cart: >> "))
+    option = int(
+        input(colored(f"Enter Product ID between (1 - {data_length}) of item you wish to add to cart: >> ", "blue")))
     i = 1
     for entry in product_temp:
 
@@ -340,8 +280,8 @@ def product_purchase(final_order):
             # print(prod_qty)
             final_order[prod_id]["id"] = option
             final_order[prod_id]["name"] = entry["name"]
-            final_order[prod_id]["quantity"] = int(input(f"\nEnter quantity (less than or equal "
-                                                      f"to {prod_qty}) you wish to purchase: >> "))
+            final_order[prod_id]["quantity"] = int(input(colored(f"\nEnter quantity (less than or equal "
+                                                                 f"to {prod_qty}) you wish to purchase: >> ", "blue")))
             final_order[prod_id]["Product_Price"] = entry["cost"]
             price = float(final_order[prod_id]["Product_Price"])
             subtotal = price * final_order[prod_id]["quantity"]
@@ -355,12 +295,84 @@ def product_purchase(final_order):
             i = i + 1
     with open(cart_file, "w") as json_file:
         json.dump(cart_temp, json_file, indent=4)
-        print("\n\n*****Product Added to cart!*****")
+        print(colored("\n\n*****Product Added to cart!*****", "blue"))
 
-
+# def check_if_user_id_exist():
+#     # with open(filename) as file:  # opens json file
+#     #     data = json.load(file)  # loads the data
+#     f = open('customers.json', 'r')
+#     customers = json.load(f)
+#     for customer in customers:
+#         name = customer["name"]
+#
+#     # f = open('customers.json', 'r')
+#     # customers = json.load(f)
+#
+#     # print(customers)
+#
+#         print(name)
+#         print(customer)
+#         user_id = input("Verify your Customer ID: ")
+#         if (customer.get('id')) == user_id:
+#             print("Your ID exists lets proceed")
+#             print("Enter 1 to view a list of products so you can purchase")
+#             # purchase_menu()
+#             # user_id = user_id
+#
+#             break
+#         else:
+#             print("Your ID does not exist. Wanna create a new customer?")
+#             print("Enter 1 to create a new customer: ")
+#             print("Enter 2 to try again: ")
+#             user_input = int(input("Enter option: "))
+#             if user_input == "1":
+#                 add_customer()
+#             elif user_input == "2":
+#
+#                 check_if_user_id_exist()
+#
+#             else:
+#                 print("You entered an invalid option!")
+#                 check_if_user_id_exist()
+#
+#             break
 
 
 # make_purchases()
 # process_purchase()
 
 # purchase_menu()
+
+# def fetch_product_by_index(product_index):
+#     f = open('products.json', 'r')
+#     products = json.load(f)
+#     i = 0
+#
+#     for product in products:
+#         # name = product["name"]
+#         # cost = product["cost"]
+#         # quantity = product["quantity"]
+#         # id = product["id"]
+#         # print(product["id"])
+#         print(product)
+#         # return product
+# def check_if_user_valid():
+#     """
+#     Checks if a user exist or not.
+#     """
+#     users = user_json_file()
+#     customer = input("enter id: ")
+#     # print(users)
+#     for (index, entry) in enumerate(users):
+#         if customer == entry["id"]:
+#
+#             # print(index)
+#             # start_purchases()
+#             purchase_menu()
+#
+#             return str(index)
+#         else:
+#             # print("not success")
+#             continue
+#     return False
+make_purchases()
