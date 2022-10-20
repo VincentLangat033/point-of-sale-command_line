@@ -1,17 +1,28 @@
+from termcolor import colored
+
 
 def product_menu():
-    print("What would you like to do?")
-    print("1. View all products")
-    print("2. Insert a new product")
-    print("3. Update a Product")
-    print("4. Delete a Product")
-    print("5. Proceed to make a purchase")
-    print("5. Quit")
-    value = input("Enter a number to proceed: ")
+    print(colored("""
+***  YOU ARE AT THE PRODUCT'S SECTION   ***
+    WHAT WOULD YOU LIKE TO DO?
+    1. View all products
+    2. Insert a new product
+    3. Update a Product
+    4. Delete a Product
+    5. Proceed to make a purchase
+    6. Quit
+        
+    
+    """, "blue"))
+    value = input(colored("Enter a number to proceed: ", "blue"))
     if value == "1":
         from product import product_operations
         product_operations.view_all_products()
-        product_menu()
+        value = input(colored("Press 1 to get back to product menu: ", "yellow"))
+        if value == "1":
+            product_menu()
+        else:
+            pass
     elif value == "2":
         from product import product_operations
         product_operations.add_product()
@@ -27,3 +38,6 @@ def product_menu():
 
     else:
         print("Invalid number, try again!")
+
+
+product_menu()
