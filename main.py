@@ -3,9 +3,13 @@ from termcolor import colored
 pos_cli = ("""
 ----------------------------------
 
+*** Dear Customer, ***
+----------------------------------
+
 *** Welcome to Python POS CLI  ***
 
 ----------------------------------
+*** You will perform the following operations ***
     """)
 
 
@@ -18,6 +22,7 @@ def main_menu():
     print(colored("""
 ________________________________________________
     """, "yellow"))
+    print(colored("What do you wish to do? ", "blue"))
     value = int(input(colored("Enter operation you wish to perform : ", "blue")))
     if value == 1:
         print("""
