@@ -1,5 +1,5 @@
 import json
-product_json = "product/products.json"
+product_json = "/home/moringa/PycharmProjects/SEPA/sprint_one/product/products.json"
 
 
 def view_all_products():
