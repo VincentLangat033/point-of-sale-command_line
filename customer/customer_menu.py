@@ -31,7 +31,8 @@ def customer_menu():
         customer_menu()
     elif value == 4:
         # view_all_products()
-        print("What do you wish to do? ")
+        from product import product_operations
+        product_operations.view_all_products()
     elif value == 5:
         view_all_customers()
         customer_menu()
