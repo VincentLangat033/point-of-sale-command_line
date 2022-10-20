@@ -1,6 +1,6 @@
 import json
 import re
-# from validate_email import validate_email
+from termcolor import colored
 file_path = "/home/moringa/PycharmProjects/SEPA/sprint_one/customer/customers.json"
 
 
@@ -55,20 +55,21 @@ def view_all_customers():
     f = open(file_path, 'r')
     customers = json.load(f)
     i = 0
-
     for customer in customers:
         name = customer["name"]
         age = customer["age"]
         id = customer["id"]
         email = customer["email"]
         phone = customer["phone"]
-        print(f"Index of customer {i}")
-        print(f"Name of customer {name}")
-        print(f"Age of customer {age}")
-        print(f"Email of customer {email}")
-        print(f"Phone number of customer {phone}")
-        print(f"ID of customer {id}")
-        print("\n")
+        print(colored(f"Index of this customer is :  {i}", "yellow"))
+        print(colored(f"Name of customer :  {name}", "blue"))
+        print(colored(f"Age of customer:  {age}", "blue"))
+        print(colored(f"Email of customer: {email}", "yellow"))
+        print(colored(f"Phone number of customer:  {phone}", "blue"))
+        print(colored(f"The ID of customer: {id}", "blue"))
+        print(colored("""
+____________________________________________________
+        """, "blue"))
         i = i+1
 
 
