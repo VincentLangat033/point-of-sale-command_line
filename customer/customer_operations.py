@@ -80,7 +80,6 @@ def delete_customer():
    Press 1 to view index of Customer you want to delete:
     
     """, "blue"))
-
     user_input = input(colored("Enter value to proceed: ", "blue"))
     if user_input == "1":
         view_all_customers()
@@ -108,7 +107,6 @@ def delete_customer():
 
 
 def update_customer():
-
     print(colored("""
 ```````````````````````````````````````
 ***  Customer Update Section   ***
@@ -127,8 +125,8 @@ def update_customer():
         f = open(file_path, 'r')
         customers = json.load(f)
         data_length = len(customers) - 1
-        print("Which index would you like to update?")
-        edit_option = input(f"Select a number between 0 and {data_length}: ")
+        print(colored("Which index would you like to update?", "yellow"))
+        edit_option = input(colored(f"Select a number between 0 and {data_length}: ", "blue"))
         i = 0
         for customer in customers:
             if i == int(edit_option):
@@ -149,7 +147,6 @@ def update_customer():
                 email = input(colored("What would you like the new email of customer be?:  ", "blue"))
                 new_data.append({"name": name, "age": age, "id": id, "phone": phone, "email": email})
                 print("\n")
-
                 i = i + 1
             else:
                 new_data.append(customer)
@@ -157,14 +154,13 @@ def update_customer():
         with open(file_path, 'w', encoding='utf-8') as json_file:
             json.dump(new_data, json_file, indent=4, separators=(',', ': '))
             print(colored("Customer updated successfully", "yellow"))
-
     else:
         print(colored("Invalid input try again", "red"))
         update_customer()
 
 
 def return_customer_name():
-    user_input = input("Enter value to proceed: ")
+    user_input = input(colored("Enter value to proceed: ", "blue"))
     if user_input == "1":
         view_all_customers()
         new_data = []
