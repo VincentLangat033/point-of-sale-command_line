@@ -42,7 +42,17 @@ def customer_menu():
         product_operations.view_all_products()
     elif value == 5:
         view_all_customers()
-        customer_menu()
+        user_input = input(colored("Enter 1 to return to Customer Menu or 0 to quit at this point: ", "blue"))
+        if user_input == "1":
+            customer_menu()
+        elif user_input == "2":
+            pass
+        else:
+            print(colored("Input Invalid!, Try again!", "red"))
+
+
+
+
     elif value == 6:
         from main import main_menu
         main_menu()
