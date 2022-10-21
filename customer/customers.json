@@ -14,7 +14,7 @@
         "id": "2"
     },
     {
-        "name": "John Kamau",
+        "name": "Vincent Johnson",
         "age": 26,
         "id": "3",
         "phone": "0734215672",
@@ -33,5 +33,19 @@
         "id": "5",
         "email": "sangkibet174@gmail.com",
         "phone": "0723265092"
+    },
+    {
+        "name": "Albert Kahira",
+        "age": 35,
+        "id": "6",
+        "phone": "0723456215",
+        "email": "albert@jengaschool.com"
+    },
+    {
+        "name": "Snaida Kabalika",
+        "age": 26,
+        "id": "7",
+        "phone": "0734215672",
+        "email": "sneijderk6@gmail.com"
     }
 ]

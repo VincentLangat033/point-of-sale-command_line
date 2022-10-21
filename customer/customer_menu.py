@@ -22,35 +22,34 @@ def customer_menu():
     
     """)
     if value == 1:
-        print("Enter Details of customer you wish to add")
+        print(colored("Enter Details of customer you wish to add", "yellow"))
         add_customer()
-        print("How do ou wish to proceed?")
+        print(colored("How do ou wish to proceed?",  "yellow"))
         customer_menu()
     elif value == 2:
-        print("What do you wish to update?")
+        print(colored("What do you wish to update?", "yellow"))
         update_customer()
         customer_menu()
 
     elif value == 3:
-        print("Delete Customer")
+        print(colored("Delete Customer", "yellow"))
         delete_customer()
         customer_menu()
     elif value == 4:
         from product import product_operations, product_menu
         product_operations.view_all_products()
-        user_input = input("Press 1 to proceed to product menu")
+        user_input = input(colored("Press 1 to proceed to product menu", "yellow"))
         if user_input == "1":
             product_menu.product_menu()
         else:
             product_menu.product_menu()
-
 
     elif value == 5:
         view_all_customers()
         user_input = input(colored("Enter 1 to return to Customer Menu or 0 to quit at this point: ", "yellow"))
         if user_input == "1":
             customer_menu()
-        elif user_input == "2":
+        elif user_input == "0":
             pass
         else:
             print(colored("Input Invalid!, Try again!", "red"))
