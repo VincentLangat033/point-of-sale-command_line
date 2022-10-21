@@ -16,8 +16,6 @@ def validate_phone(phone):
     if re.match(pattern, phone):
         return True
     return False
-    # pattern = re.compile("(0|91)?[6-9][0-9]{9}")
-    # return pattern.match(phone)
 
 
 def add_customer():
