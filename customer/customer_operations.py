@@ -44,7 +44,7 @@ def add_customer():
     with open(file_path, 'w', encoding='utf-8') as json_file:
         json.dump(customers, json_file, indent=4, separators=(',', ': '))
         print(colored("Customer created successfully", "yellow"))
-    print(customers)
+    # print(customers)
 
 
 def view_all_customers():
