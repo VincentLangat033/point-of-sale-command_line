@@ -120,7 +120,6 @@ def goods_sold(name, goods_sold):
             quantity = int(product["quantity"]) - int(goods_sold)
             cost = product["cost"]
             id = product["id"]
-
             updated_product = {
                 "name": name,
                 "quantity": quantity,
@@ -183,12 +182,12 @@ def make_purchases():
                     continue
                 else:
                     break
-
             i = 1
             for entry in customer_temp:
                 if i == int(customer_id):
                     final_order["Customer Name"] = entry["name"]
                     customer_mail = entry["email"]
+                    customer_name = entry["name"]
                     print(customer_mail)
 
                     order_temp.append(final_order)
@@ -240,25 +239,42 @@ ENJOYED YOUR SHOPPING?
                 total_cost += i[3]
             goods_sold(cart[0], cart[1])
             goods_bought(cart[1], total_cost, customer[int(index)]["email"])
-            the_join = ''.join([f"{i[0]}  -  {i[1]}  : {i[2]}  each\n" for i in main_cart])
+            purchase_details = ''.join([f"""
+{i[0]}     -       {i[1]}   :   {i[2]}  each\n
+    """ for i in main_cart])
 
             receipt = colored(f"""
-    Customer Receipt
-    _________________________________________________
-    Customer name: {customer[int(index)]["name"]}
-    _________________________________________________
-    Product   Quantity     price   
-    _________________________________________________   
-    {the_join}         
+````````````````````````````````````````````````````````````````````
+THANK YOU {customer_name} FOR SHOPPING WITH US
+
+                CUSTOMER RECEIPT
+`````````````````````````````````````````````````````````````````````
+    Customer name: {customer_name}
+
+`````````````````````````````````````````````````````````````````````
+    Product         Quantity           Price   
+`````````````````````````````````````````````````````````````````````
+    {purchase_details}     
+        
     Total purchase cost  : {total_cost}
-    _________________________________________________   
-            """, "blue")
+    
+YOU WERE SERVED BY: VINCENT KIMUTAI
+    
+``````````````````````````````````````````````````````````````````````
+            """, "yellow")
 
             print(receipt)
-            user_id = input(colored("Enter a value", "blue"))
+            print(colored("""
+            Thank you for purchasing with us!
+            Do you want a receipt for this transaction sent to your email?
+            Press 1 if you accept and any other value to exit.
+            """, "yellow"))
+            user_id = input(colored("Enter a value: ", "blue"))
             if user_id == "1":
                 send_email(customer_mail, " Here is your POS CLI receipt", receipt)
-            user_input = input(colored("Type exit to exit or 1 to go back home"))
+            else:
+                pass
+            user_input = input(colored("Type exit to exit or 1 to go back home: ", "yellow"))
             if user_input == "exit":
                 pass
             elif user_input == "1":
@@ -284,18 +300,18 @@ def product_purchase(final_order):
     for entry in product_temp:
 
         if i == int(option):
-            prod_id = create_product_id()
-            final_order[prod_id] = {}
+            product_detail = create_product_id()
+            final_order[product_detail] = {}
             prod_qty = entry["quantity"]
             # print(prod_qty)
-            final_order[prod_id]["id"] = option
-            final_order[prod_id]["name"] = entry["name"]
-            final_order[prod_id]["quantity"] = int(input(colored(f"\nEnter quantity (less than or equal "
+            final_order[product_detail]["id"] = option
+            final_order[product_detail]["name"] = entry["name"]
+            final_order[product_detail]["quantity"] = int(input(colored(f"\nEnter quantity (less than or equal "
                                                                  f"to {prod_qty}) you wish to purchase: >> ", "blue")))
-            final_order[prod_id]["Product_Price"] = entry["cost"]
-            price = float(final_order[prod_id]["Product_Price"])
-            subtotal = price * final_order[prod_id]["quantity"]
-            final_order[prod_id]["Sub-Total"] = float(subtotal)
+            final_order[product_detail]["Product_Price"] = entry["cost"]
+            price = float(final_order[product_detail]["Product_Price"])
+            subtotal = price * final_order[product_detail]["quantity"]
+            final_order[product_detail]["Sub-Total"] = float(subtotal)
             print(subtotal)
             cart_temp.append(final_order)
             i = i + 1
@@ -385,4 +401,4 @@ def product_purchase(final_order):
 #             # print("not success")
 #             continue
 #     return False
-make_purchases()
+# make_purchases()
