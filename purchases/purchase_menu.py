@@ -119,11 +119,13 @@ def goods_sold(name, goods_sold):
             name = product["name"]
             quantity = int(product["quantity"]) - int(goods_sold)
             cost = product["cost"]
+            id = product["id"]
 
             updated_product = {
                 "name": name,
                 "quantity": quantity,
                 "cost": cost,
+                "id": id,
             }
             updated_product_list.append(updated_product)
         else:
@@ -144,7 +146,7 @@ def send_email(email_receiver, subject, text):
     # email_receiver = "kimutaiketer033@gmail.com"
     """
     email = "vlangat439@gmail.com"
-    password = "wdfjlrrmhebayvts"
+    password = "qaytwectapjlgdik"
     sender_email = email
     receiver_email = email_receiver
     password = password
@@ -256,6 +258,14 @@ ENJOYED YOUR SHOPPING?
             user_id = input(colored("Enter a value", "blue"))
             if user_id == "1":
                 send_email(customer_mail, " Here is your POS CLI receipt", receipt)
+            user_input = input(colored("Type exit to exit or 1 to go back home"))
+            if user_input == "exit":
+                pass
+            elif user_input == "1":
+                from main import main_menu
+                main_menu()
+            else:
+                pass
 
 
 def product_purchase(final_order):
