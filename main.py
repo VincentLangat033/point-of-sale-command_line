@@ -42,7 +42,10 @@ ________________________________________________
         purchase_menu.make_purchases()
  
     else:
-        print("Try again")
+        print("""
+`````````````````````````````
+        """)
+        print(colored("Try again", "red"))
         main_menu()
 
 
