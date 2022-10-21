@@ -39,8 +39,8 @@ def check_user(customer):
         if customer == entry["id"]:
             return str(index)
         else:
-            print(colored("Wrong customer ID", "red"))
-            print(colored("Try again!", "red"))
+            # print(colored("Wrong customer ID", "red"))
+            # print(colored("Try again!", "red"))
             continue
     return False
 

@@ -1,19 +1,19 @@
 [
     {
         "name": "Hp Laptop",
-        "quantity": 543,
+        "quantity": 542,
         "cost": 55000,
         "id": 1
     },
     {
         "name": "Dell laptop",
-        "quantity": 790,
+        "quantity": 782,
         "cost": 66500,
         "id": 2
     },
     {
         "name": "Lenovo",
-        "quantity": 165,
+        "quantity": 133,
         "cost": "50000",
         "id": 3
     },

@@ -24,8 +24,9 @@ def customer_menu():
     if value == 1:
         print(colored("Enter Details of customer you wish to add", "yellow"))
         add_customer()
-        print(colored("How do ou wish to proceed?",  "yellow"))
-        customer_menu()
+        print(colored("How do you wish to proceed?",  "yellow"))
+        # customer_menu()
+        view_all_customers()
     elif value == 2:
         print(colored("What do you wish to update?", "yellow"))
         update_customer()

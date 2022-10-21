@@ -47,5 +47,26 @@
         "id": "7",
         "phone": "0734215672",
         "email": "sneijderk6@gmail.com"
+    },
+    {
+        "name": "Cheruiyot Peter",
+        "age": 25,
+        "id": "8",
+        "email": "cheruiyotpeter50@gmail.com",
+        "phone": "0721567216"
+    },
+    {
+        "name": "Vincent Langat",
+        "age": 23,
+        "id": "9",
+        "email": "kimutailangat033@gmail.com",
+        "phone": "0723217"
+    },
+    {
+        "name": "John Alex",
+        "age": 24,
+        "id": "10",
+        "email": "vinniekim31@gmail.com",
+        "phone": "0723627219"
     }
 ]
