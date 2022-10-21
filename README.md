@@ -2,11 +2,17 @@
 ## SEPA Program Sprint one
 # Sprint Deliverables
 - Develop a POS system using python
-- Validate input data
+- Validate input data(phone number and email)
+- Print a receipt and send either via Email or SMS
 
 ## About the POS
-POS Console App is a Command - Line based Point Of Sale System. The project was developed using Python programming language. It is a single user application meant to operate in a sales store or shops. The system facilitates for CRUD operations for both customers and products, and further supports purchase functionalities. The project objectives were to achieve a menu-driven system based on user's input that further executes its sub-programs associated with the menu. The details in the process were captured in a JSON file.
-
+POS Console App is a Command - Line based Point Of Sale System. 
+This program is developed  using Python programming language. 
+It is a single user application meant to operate in a sales store or shops. 
+This system allows for CRUD operations for customers and products. When this operations are done, a customer should be able to make purchases based on the products they added to their program. This is a menu-driven program based on a user's input.
+This program implemented a JSON file to store its file and SMTP for email authentication.
+# POS at a glance
+![image](pos_cli.png)
 
 ## Table of contents
 * [About the POS](#AboutthePOS)
@@ -16,17 +22,56 @@ POS Console App is a Command - Line based Point Of Sale System. The project was 
 
 ## Technologies
 * Language: [Python 3.8](https://www.python.org/downloads/release/python-3810/)
+* [JSON](https://www.json.org/json-en.html)
+* [GMAIL](https://www.google.com/gmail/about/)
 * IDE: [Pycharm](https://www.jetbrains.com/help/pycharm/quick-start-guide.html)
 
 ## Features
 ## Main Menu
-A menu when the app is launched. It contains Customer Menu, Product Menu and Shopping Menu.
+A menu appears when the app is launched. It contains Customer operations, Product operations and Purchase operation.
 ### Customer Operations
 A user is able to feed into the system customer data, view available customers, update existing customer data and delete a particular customer. All customer records can further be accessed.
+A customer can be able to view available products or exit at this stage. 
+The customer details are stored in customers.json
+
+    Sample Customer details Format
+    ```
+        [
+            {
+                "name": "Vincent Kimutai",
+                "age": "24",
+                "email": "kimutai@gmail.com",
+                "phone": "0723265092"
+                  "id": "5",
+            },
+        ]
+    ```
 ### Product Operations
-A user can key in the product's data for inventory purposes, view the available products, update product data and delete a product.
+A user can key in the product's data for inventory purposes, view the available products, update product data and delete a product. 
+A customer can proceed to purchases at this point here-in or exit the program.
+The products are stored at products.json file
+
+    Sample Product details Format
+    ```
+        [
+            {
+                "name": "Dell laptop",
+                "quantity": 800,
+                "cost": 66_500,
+                "id": 2
+            },
+        ]
+    ```
 ### Purchase function
-Customer details were first retrieved then added to the ongoing purchase, the user then adds the products and the quantities that the customer has ordered into a cart. In the process the subtotal of all products are calculated. During checkout, the total cost is calculated, product quantity decremented for the remaining products in the store and a receipt issued to the customer. The data captured in the cart is used to generate a purchase log that can later be viewed. The cart is then emptied to make room for future purchases. The purchase log generated contains the orders that were made from different purchases, the customers in-charge, purchased products and total amounts.
+Before a customer makes any purchases, they first need to be authenticated.
+When the customer is authenticated, they can then proceed to view all the available products and their quantities.
+A customer can then begin to make purchases. The products they purchases are added to a cart and the totals for each product and its quantities are calculated at that point, if the customer wishes to proceed to make purchases, then their sub-totals
+will be added to the previous. 
+When the customer is done purchasing, a receipt is given to them which contains their name, the product they purchased, the quantities and the total cost.
+The customer is further asked whether they would like to receive such a receipt via email. If the customer accepts, the receipt is send to their email and this only happens if the customer provided an existing email.
+The program then terminates at this point.
+Further advancement could include having a customer purchase history, checking whether a product really exists before adding it to the products json file.
+
 
 ## Setup
 ### Requirements
