@@ -36,8 +36,15 @@ def customer_menu():
         delete_customer()
         customer_menu()
     elif value == 4:
-        from product import product_operations
+        from product import product_operations, product_menu
         product_operations.view_all_products()
+        user_input = input("Press 1 to proceed to product menu")
+        if user_input == "1":
+            product_menu.product_menu()
+        else:
+            product_menu.product_menu()
+
+
     elif value == 5:
         view_all_customers()
         user_input = input(colored("Enter 1 to return to Customer Menu or 0 to quit at this point: ", "yellow"))
