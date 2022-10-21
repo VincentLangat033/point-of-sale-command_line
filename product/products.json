@@ -1,7 +1,7 @@
 [
     {
         "name": "Hp Laptop",
-        "quantity": 580,
+        "quantity": 557,
         "cost": 55000,
         "id": 1
     },
@@ -13,7 +13,14 @@
     },
     {
         "name": "Lenovo",
-        "quantity": 260,
-        "cost": "50000"
+        "quantity": 235,
+        "cost": "50000",
+        "id" : 3
+    },
+    {
+        "name": "Thinkpad",
+        "cost": "65000",
+        "quantity": "250",
+        "id": "4"
     }
 ]
