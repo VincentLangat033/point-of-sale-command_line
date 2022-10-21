@@ -89,3 +89,15 @@ Start the program by running the following command:
 ```bash 
 python main.py
 ```
+## Known Bugs
+There are no known bugs in this program and all the functionalities stated to be executable are indeed working.
+
+## Contributions
+Feel free to fork and clone this repository and contribute to it!
+```bash 
+git clone https://github.com/VincentLangat033/sprint-one-python-POS-CLI
+```
+
+Author
+---
+This project was developed by : [Vincent Langat](https://github.com/VincentLangat033)
