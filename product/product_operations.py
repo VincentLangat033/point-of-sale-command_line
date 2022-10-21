@@ -133,4 +133,5 @@ def delete_product():
 # view_all_products()
 # add_product()
 # delete_product()
+# update_product()
 
