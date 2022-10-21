@@ -11,10 +11,15 @@ def solve(email):
     return False
 
 
-def validate_phone(phone):
-    pattern = r"^[07]|[01][0-9]{10}$"
-    if re.match(pattern, phone):
-        return True
+def validate_phone(phone_number):
+    if len(phone_number) == 10:
+        pattern = r"^[07]|[01][0-9]{9}$"
+        # r'^(?:\+?254)?[07]?[01]\d{10,13}$'
+        #  r"^[07]|[01][0-9]{8}$"
+        
+        if re.match(pattern, phone_number):
+            return True
+        return False
     return False
 
 
@@ -32,9 +37,9 @@ def add_customer():
             print(colored("Enter the correct email format!", "red"))
             continue
     while True:
-        phone = input(colored("Enter Phone Number: ", "yellow"))
-        if validate_phone(phone):
-            customer["phone"] = phone
+        phone_number = input(colored("Enter Phone Number: ", "yellow"))
+        if validate_phone(phone_number):
+            customer["phone"] = phone_number
             break
         else:
             print(colored("Phone number should start with 0 !", "red"))
