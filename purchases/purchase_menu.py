@@ -240,8 +240,8 @@ ENJOYED YOUR SHOPPING?
             goods_sold(cart[0], cart[1])
             goods_bought(cart[1], total_cost, customer[int(index)]["email"])
             purchase_details = ''.join([f"""
-{i[0]}     -       {i[1]}   :   {i[2]}  @    :    {i[2]  * i[1]}   \n
-    """ for i in main_cart])
+{i[0]}     -       {i[1]}   :   {i[2]}  each   \n
+    """ for i in main_cart ])
 
             receipt = colored(f"""
 ````````````````````````````````````````````````````````````````````
@@ -252,7 +252,7 @@ THANK YOU {customer_name} FOR SHOPPING WITH US
     Customer name: {customer_name}
 
 `````````````````````````````````````````````````````````````````````
-    Product         Quantity           Price       Sub-Total
+    Product         Quantity           Price     
 `````````````````````````````````````````````````````````````````````
     {purchase_details}    
     
