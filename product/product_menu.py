@@ -1,4 +1,5 @@
 from termcolor import colored
+from product import product_query
 
 
 def product_menu():
@@ -9,8 +10,9 @@ def product_menu():
     2. Insert a new product
     3. Update a Product
     4. Delete a Product
-    5. Proceed to make a purchase
-    6. Quit
+    5. Search a Product
+    6. Proceed to make a purchase
+    7. Quit
         
     
     """, "blue"))
@@ -36,6 +38,9 @@ def product_menu():
         product_operations.delete_product()
         product_menu()
     elif value == "5":
+        user_input = input(colored("Enter the ID of the user you wish to search: ", "blue"))
+        product_query.search_product_by_id(user_input)
+    elif value == "6":
         from purchases import purchase_menu
         purchase_menu.make_purchases()
 
