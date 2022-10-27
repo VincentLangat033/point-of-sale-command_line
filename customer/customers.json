@@ -68,5 +68,12 @@
         "id": "10",
         "email": "vinniekim31@gmail.com",
         "phone": "0723627219"
+    },
+    {
+        "name": "Ruth",
+        "age": 36,
+        "id": "11",
+        "email": "ruth@jengaschool.com",
+        "phone": "0723214562"
     }
 ]
