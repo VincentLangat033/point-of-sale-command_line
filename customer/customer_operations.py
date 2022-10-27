@@ -4,13 +4,6 @@ from termcolor import colored
 file_path = "/home/moringa/PycharmProjects/SEPA/sprint_one/customer/customers.json"
 
 
-def solve(email):
-    pat = "^[a-zA-Z0-9-_]+@[a-zA-Z0-9]+\.[a-z]{1,3}$"
-    if re.match(pat, email):
-        return True
-    return False
-
-
 def validate_phone(phone_number):
     if len(phone_number) == 10:
         pattern = r"^[07]|[01][0-9]{9}$"
@@ -20,6 +13,13 @@ def validate_phone(phone_number):
         if re.match(pattern, phone_number):
             return True
         return False
+    return False
+
+
+def solve(email):
+    pat = "^[a-zA-Z0-9-_]+@[a-zA-Z0-9]+\.[a-z]{1,3}$"
+    if re.match(pat, email):
+        return True
     return False
 
 
@@ -207,4 +207,4 @@ def return_customer_name():
 
 
 # add_customer()
-# update_customer()
+# update_customer
