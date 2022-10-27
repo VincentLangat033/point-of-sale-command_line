@@ -7,13 +7,13 @@
     },
     {
         "name": "Dell laptop",
-        "quantity": 770,
+        "quantity": 500,
         "cost": 66500,
         "id": 2
     },
     {
         "name": "Lenovo",
-        "quantity": 101,
+        "quantity": 91,
         "cost": "50000",
         "id": 3
     },
