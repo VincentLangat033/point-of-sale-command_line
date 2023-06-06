@@ -1,7 +1,8 @@
 import json
 import re
 from termcolor import colored
-file_path = "/home/moringa/PycharmProjects/SEPA/sprint_one/customer/customers.json"
+file_path = "customer/customers.json"
+
 
 
 def validate_phone(phone_number):
