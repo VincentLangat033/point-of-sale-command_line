@@ -1,7 +1,6 @@
 import json
 from termcolor import colored
-product_json = "/home/moringa/PycharmProjects/SEPA/sprint_one/product/products.json"
-
+product_json = "product/products.json"
 
 def view_all_products():
     # with open('test.json') as f:
