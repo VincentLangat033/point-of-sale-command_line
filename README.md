@@ -11,6 +11,7 @@ This program is developed  using Python programming language.
 It is a single user application meant to operate in a sales store or shops. 
 This system allows for CRUD operations for customers and products. When this operations are done, a customer should be able to make purchases based on the products they added to their program. This is a menu-driven program based on a user's input.
 This program implemented a JSON file to store its file and SMTP for email authentication.
+
 # POS at a glance
 ![image](resources/pos_cli_2.png)
 
