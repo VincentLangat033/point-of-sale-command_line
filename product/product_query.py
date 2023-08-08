@@ -1,6 +1,6 @@
 import json
 
-product_file = "/home/moringa/PycharmProjects/SEPA/sprint_one/product/products.json"
+product_file = "product/products.json"
 
 
 def search_product_by_id(id):
